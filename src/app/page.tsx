@@ -1,5 +1,9 @@
-import Image from "next/image";
-
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <div className="bg-background-white text-text-dark">
+      <button className="bg-primary-green text-background-white hover:bg-highlight-green">
+        Vote Now
+      </button>
+    </div>
+  );
 }
