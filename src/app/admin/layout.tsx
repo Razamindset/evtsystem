@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Sidebar from "./_components/Sidebar";
 
 export const metadata: Metadata = {
   title: "Admin | APS&Cs EVTS",
@@ -10,5 +11,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div>{children}</div>;
+  return <Sidebar>{children}</Sidebar>;
 }

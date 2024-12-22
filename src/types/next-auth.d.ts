@@ -17,7 +17,6 @@ declare module "next-auth" {
     id: string;
     name: string;
     cnic: string;
-    role: string;
     image: string;
     role: Role;
     house: House;
@@ -29,7 +28,6 @@ declare module "next-auth/jwt" {
     id: string;
     name: string;
     cnic: string;
-    role: Role;
     image: string;
     role: Role;
     house: House;

@@ -1,6 +1,6 @@
 "use server";
 
-import { signIn } from "@/auth";
+import { signIn, signOut } from "@/auth";
 
 interface SignInPayload {
   cnic: String;
@@ -14,7 +14,7 @@ export async function singIn(payload: SignInPayload) {
     }
 
     console.log("We are here");
-    
+
     const result = await signIn("credentials", {
       ...payload,
       redirect: false,
@@ -30,4 +30,10 @@ export async function singIn(payload: SignInPayload) {
     // Fallback error message
     return { success: false, message: "An unexpected error occurred" };
   }
+}
+
+export async function signOutAction() {
+  console.log("signinig out the user");
+  
+  await signOut();
 }
