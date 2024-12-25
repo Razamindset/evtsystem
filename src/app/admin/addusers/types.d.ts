@@ -1,3 +1,11 @@
+interface UserCreationActionPaload {
+  name: string;
+  cnic: string;
+  image: string;
+  role: "admin" | "user";
+  house: "Tolerance" | "Unity" | "Faith" | "Discipline";
+}
+
 interface UserFormProps {
   initialData?: {
     name?: string;
@@ -6,12 +14,4 @@ interface UserFormProps {
     role?: "admin" | "user";
     house?: "Tolerance" | "Unity" | "Faith" | "Discipline";
   };
-}
-
-interface UserCreationActionPaload {
-  name: string;
-  cnic: string;
-  image: string;
-  role: "admin" | "user";
-  house: "Tolerance" | "Unity" | "Faith" | "Discipline";
 }

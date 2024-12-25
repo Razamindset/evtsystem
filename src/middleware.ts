@@ -20,6 +20,14 @@ export async function middleware(req: Request) {
       return NextResponse.redirect(new URL("/vote", req.url));
     }
   }
+  
+  // Admin shouldnt be able to go to the voting page
+  if (req.url.includes("/vote")) {
+    if (token.role === "admin") {
+      return NextResponse.redirect(new URL("/admin", req.url));
+    }
+    return NextResponse.redirect(new URL("/", req.url));
+  }
 
   // If all checks pass, allow the request to proceed
   return NextResponse.next();

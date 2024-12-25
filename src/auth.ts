@@ -3,8 +3,7 @@ import authConfig from "@/auth.config";
 
 export const authOptions: NextAuthConfig = {
   pages: {
-    signIn: "/auth/signin",
-    error: "/auth/error",
+    signIn: "/",
   },
   callbacks: {
     async session({ token, session }) {

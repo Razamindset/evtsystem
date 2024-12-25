@@ -147,8 +147,8 @@ export default function UserForm({ initialData }: UserFormProps) {
               className="mt-1 p-1 outline-none block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
             >
               <option value="">Select a role</option>
-              <option value="admin">User</option>
-              <option value="user">Admin</option>
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
             </select>
             {errors.role && (
               <p className="mt-1 text-sm text-red-600">{errors.role}</p>

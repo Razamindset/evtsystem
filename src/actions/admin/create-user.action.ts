@@ -1,8 +1,10 @@
 "use server";
 
 import { auth } from "@/auth";
+import dbConnect from "@/lib/db/dbConnect";
 import User from "@/lib/db/models/user.model";
 import { revalidatePath } from "next/cache";
+import { json } from "stream/consumers";
 
 export async function createUser(payload: UserCreationActionPaload) {
   try {
@@ -13,6 +15,8 @@ export async function createUser(payload: UserCreationActionPaload) {
     if (!payload) {
       throw new Error("Incomplete credentials");
     }
+
+    await dbConnect();
 
     const user = await User.create({
       ...payload,
@@ -26,6 +30,7 @@ export async function createUser(payload: UserCreationActionPaload) {
       success: true,
       error: false,
       message: "user Created successfully",
+      user: JSON.parse(JSON.stringify(user)),
     };
   } catch (error: any) {
     console.log(error.message);

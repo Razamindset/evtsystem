@@ -10,6 +10,7 @@ async function fetchAllUsers() {
 
 export default async function CreateUsersPage() {
   const users = await fetchAllUsers();
+
   return (
     <div className="bg-gray-900 text-white w-full h-full rounded-md p-4">
       <Users users={users} />

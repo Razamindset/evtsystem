@@ -33,15 +33,12 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
 
           <nav className="flex flex-col gap-2 mb-24">
             {links.map((link, i) => (
-              <div
-                className="flex items-center gap-2 transition hover:bg-gray-700 p-2 rounded-md hover:text-green-600"
-                key={i}
-              >
-                {link.icon}
-                <Link href={link.link} className="">
+              <Link key={i} href={link.link} className="">
+                <div className="flex items-center gap-2 transition hover:bg-gray-700 p-2 rounded-md hover:text-green-600">
+                  {link.icon}
                   {link.name}
-                </Link>
-              </div>
+                </div>
+              </Link>
             ))}
           </nav>
 
@@ -50,7 +47,7 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
           </div>
         </aside>
 
-        <div className="h-full w-full">{children}</div>
+        <div className="h-full w-full bg-gray-900 text-white ">{children}</div>
       </div>
     </div>
   );
