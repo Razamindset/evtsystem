@@ -1,7 +1,7 @@
 import mongoose, { Document, Schema } from "mongoose";
 
 // Define the interface for the user document (with Mongoose Document)
-export interface CustomUser extends Document {
+interface CustomUser extends Document {
   name: string;
   cnic: string;
   image: string;
