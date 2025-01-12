@@ -17,7 +17,7 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
     },
     {
       name: "Election",
-      link: "/admin/create-election",
+      link: "/admin/elections",
       icon: <FaPoll size={25} />,
     },
   ];

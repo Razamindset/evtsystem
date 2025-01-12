@@ -1,3 +1,4 @@
+import { CreateElectionAction } from "@/actions/admin/create/election.action";
 import { useState } from "react";
 
 export default function ElectionCreationForm({
@@ -20,7 +21,7 @@ export default function ElectionCreationForm({
     const formData = new FormData(e.currentTarget);
 
     const name = formData.get("name") as string;
-    const house = formData.get("house") as string;
+    const house = formData.get("house") as House;
     const startDate = formData.get("startDate") as string;
     const endDate = formData.get("endDate") as string;
     const image = formData.get("image") as string;
@@ -32,13 +33,26 @@ export default function ElectionCreationForm({
       return;
     }
 
+    const participantsIds = participants.split(",");
+
+    if (participantsIds.length < 2) {
+      setError("At least 2 particpants from the house");
+      return;
+    }
+
     setLoading(true);
     try {
-      // Simulate form submission (Replace with actual API call)
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setSuccess(true);
-      e.currentTarget.reset(); // Clear the form
-      setTimeout(() => setSuccess(false), 3000); // Hide success message after 3 seconds
+      const payload: PayloadType = {
+        name: name,
+        house,
+        startDate,
+        endDate,
+        image: "https://dummyimage.com/200X200",
+        participantsIds,
+      };
+
+      const res = await CreateElectionAction(payload);
+      console.log(res);
     } catch (err) {
       setError("An error occurred while creating the election.");
     } finally {

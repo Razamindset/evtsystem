@@ -4,7 +4,6 @@ import { auth } from "@/auth";
 import dbConnect from "@/lib/db/dbConnect";
 import User from "@/lib/db/models/user.model";
 import { revalidatePath } from "next/cache";
-import { json } from "stream/consumers";
 
 export async function createUser(payload: UserCreationActionPaload) {
   try {
